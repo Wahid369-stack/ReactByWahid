@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ItemList from './ItemList'
-import { clearItem } from '../utils/CartSlice'
+import { clearItem } from '../utils/cartSlice'
 
 
 
