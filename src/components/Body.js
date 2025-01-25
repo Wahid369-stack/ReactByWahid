@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 const Body=()=>{
-    const [listofRestaurant,setListofRestauarnt]=useState(["apple"]);
+    const [listofRestaurant,setListofRestauarnt]=useState([]);
     const [filterListofRestaurant,setFilterListofRestauarnt]=useState([]);
     const [searchText,setSearchText]=useState("");
     // console.log("body rendered",listofRestaurant);
@@ -16,11 +16,10 @@ const Body=()=>{
     const fetchData=async()=>{
        const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.56405&lng=77.28164&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json=await data.json();
-        // console.log(json.data.statusMessage)
-        
-        console.log(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle);  
-        setListofRestauarnt(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilterListofRestauarnt(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        console.log(json)
+        // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        setListofRestauarnt(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilterListofRestauarnt(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
     const onlineStatus=useOnlineStatus();
     if(onlineStatus===false) return <h1>You have lost your internet connection, please check your internet</h1>

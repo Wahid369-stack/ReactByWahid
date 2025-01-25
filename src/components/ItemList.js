@@ -1,7 +1,7 @@
 import { CDN_URL } from '../utils/constant'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addItem } from '../utils/CartSlice';
+import { addItem } from '../utils/cartSlice';
 
 const ItemList = ({items}) => {
     // console.log(itemList)
