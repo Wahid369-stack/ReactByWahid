@@ -16,15 +16,16 @@ const Body=()=>{
     const fetchData=async()=>{
        const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.56405&lng=77.28164&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json=await data.json();
-        console.log(json)
-        // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-        setListofRestauarnt(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilterListofRestauarnt(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        // console.log(json.data.statusMessage)
+        
+        console.log(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle);  
+        setListofRestauarnt(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilterListofRestauarnt(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
     const onlineStatus=useOnlineStatus();
     if(onlineStatus===false) return <h1>You have lost your internet connection, please check your internet</h1>
     const {loggedInUser,setUserName}=useContext(UserContext);
-    console.log(listofRestaurant)
+    // console.log(listofRestaurant)
     return listofRestaurant.length===0?<Shimmer/>: (
         <div className="body">
             <div className="flex">
