@@ -18,8 +18,8 @@ const Body=()=>{
         const json=await data.json();
         console.log(json)
         // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-        setListofRestauarnt(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilterListofRestauarnt(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setListofRestauarnt(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilterListofRestauarnt(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
     const onlineStatus=useOnlineStatus();
     if(onlineStatus===false) return <h1>You have lost your internet connection, please check your internet</h1>
